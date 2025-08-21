@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <nav
-      className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-lg z-50 transition-all duration-300 dark:bg-white dark:text-black"
+      className="fixed top-0 w-full bg-black shadow-lg z-50 transition-all duration-300"
       id="navbar"
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -28,7 +28,8 @@ const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="relative py-2 px-4 text-gray-700 dark:text-gray-200 hover:text-blue-600 transition-all duration-300 group"
+                className="relative py-2 px-4 text-white hover:text-blue-400 transition-all duration-300 group"
+
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
@@ -50,7 +51,8 @@ const Header = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="block px-6 py-3 text-white dark:text-white-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 transition-colors relative"
+              className="block px-6 py-3 text-white hover:bg-gray-800 hover:text-blue-400 transition-colors relative"
+
               onClick={() => setMenuOpen(false)}
             >
               {link.name}

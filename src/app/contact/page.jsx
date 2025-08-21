@@ -2,30 +2,48 @@
 
 import React, { useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
 
 export default function ContactPage() {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [title, setTitle] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
 
-    const data = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-
-    const response = await fetch("/api/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      setEmailSubmitted(true);
-      e.target.reset();
-    }
+    emailjs
+      .send(
+        "service_7y6kr2p", // from EmailJS
+        "template_9pmidrb", // from EmailJS
+        { name, email, title, message },
+        "FfRPOZqlFqqpvXP7A" // from EmailJS
+      )
+      .then(
+        () => {
+          Swal.fire({
+            title: "Message Sent!",
+            text: "Thanks for reaching out.",
+            icon: "success",
+            confirmButtonColor: "#4f46e5",
+          });
+          setName("");
+          setEmail("");
+          setTitle("");
+          setMessage("");
+        },
+        (error) => {
+          Swal.fire({
+            title: "Failed!",
+            text: "Something went wrong. Please try again.",
+            icon: "error",
+            confirmButtonColor: "#dc2626",
+          });
+          console.error(error);
+        }
+      );
   };
 
   return (
