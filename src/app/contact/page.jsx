@@ -81,7 +81,7 @@ export default function ContactPage() {
 
         {/* Right Side (Form) */}
         <div>
-          {emailSubmitted ? (
+          {setEmail ? (
             <p className="text-green-500 text-sm mt-2">
               ✅ Email sent successfully!
             </p>
