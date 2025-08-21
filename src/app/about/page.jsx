@@ -1,101 +1,83 @@
 "use client";
-import React, { useTransition, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import TabButton from "@/Components/TabButton/TabButton";
 
-
-const TAB_DATA = [
-  {
-    title: "Skills",
-    id: "skills",
-    content: (
-      <ul className="list-disc pl-5 space-y-1">
-        <li>JavaScript</li>
-        <li>React.js</li>
-        <li>Next.js</li>
-        <li>MySQL</li>
-        <li>PHP</li>
-        <li>Laravel</li>
-        
-      </ul>
-    ),
-  },
-  {
-    title: "Education",
-    id: "education",
-    content: (
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Bachelor's in Computer Science</li>
-        <li>University of Engineering & Technology, Taxila</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <ul className="list-disc pl-5 space-y-1">
-        <li>AWS Cloud Practitioner</li>
-        <li>Google Professional Cloud Developer</li>
-      </ul>
-    ),
-  },
-];
+const TAB_DATA = {
+  skills: (
+    <ul className="list-disc pl-5 space-y-1">
+      <li>JavaScript</li>
+      <li>React.js</li>
+      <li>Next.js</li>
+      <li>MySQL</li>
+      <li>PHP</li>
+      <li>Laravel</li>
+    </ul>
+  ),
+  education: (
+    <ul className="list-disc pl-5 space-y-1">
+      <li>Bachelor&apos;s in Computer Science</li>
+      <li>University of Engineering &amp; Technology, Taxila</li>
+    </ul>
+  ),
+  certifications: (
+    <ul className="list-disc pl-5 space-y-1">
+      <li>AWS Cloud Practitioner</li>
+      <li>Google Professional Cloud Developer</li>
+    </ul>
+  ),
+};
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
-
-  const handleTabChange = (id) => {
-    startTransition(() => {
-      setTab(id);
-    });
-  };
 
   return (
     <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-12 items-center py-12 px-6 lg:px-16">
+        
         {/* Image */}
         <div className="flex justify-center">
           <Image
-            src="/Images/about-image.png"
+            src="/images/about-image.png"
             width={450}
             height={450}
             alt="Workstation setup"
             className="rounded-2xl shadow-lg"
+            loading="lazy" // ✅ priority hata kar lazy load
           />
         </div>
 
         {/* Text content */}
         <div className="mt-8 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent txt-4xl font-bold mb-4">
+          <h2 className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent text-4xl font-bold mb-4">
             About Me
           </h2>
           <p className="text-base md:text-lg leading-relaxed text-gray-300">
-            I am an undergraduate Student with a passion for creating
-            interactive and responsive web applications. I have experience
-            working with JavaScript, React, Redux, PHP , Laravel, MySQL,
-            HTML, CSS, and Git. I am a quick learner and I am always
-            looking to expand my knowledge and skill set. I am a team player and
-            I am excited to work with others to create amazing applications.
+            I am an undergraduate student with a passion for creating interactive
+            and responsive web applications. I have experience with JavaScript,
+            React, Redux, PHP, Laravel, MySQL, HTML, CSS, and Git. I’m a quick
+            learner and love working in teams to build amazing applications.
           </p>
 
           {/* Tabs */}
-          <div className="flex flex-row justify-start mt-8 gap-4 flex-wrap">
+          <div
+            className="flex flex-row justify-start mt-8 gap-4 flex-wrap"
+            role="tablist"
+          >
             <TabButton
-              selectTab={() => handleTabChange("skills")}
+              selectTab={() => setTab("skills")}
               active={tab === "skills"}
             >
               Skills
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("education")}
+              selectTab={() => setTab("education")}
               active={tab === "education"}
             >
               Education
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("certifications")}
+              selectTab={() => setTab("certifications")}
               active={tab === "certifications"}
             >
               Certifications
@@ -103,7 +85,9 @@ const AboutSection = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="mt-6">{TAB_DATA.find((t) => t.id === tab).content}</div>
+          <div className="mt-6" role="tabpanel">
+            {TAB_DATA[tab]}
+          </div>
         </div>
       </div>
     </section>
