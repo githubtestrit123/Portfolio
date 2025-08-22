@@ -32,15 +32,26 @@ const projects = [
   },
 ];
 
+// Animation variants
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+  }),
+};
+
 const Projects = () => {
   return (
     <section id="projects" className="py-16 bg-black text-white">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         
         {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold text-center mb-12"
         >
@@ -49,23 +60,25 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
               className="relative group rounded-xl overflow-hidden shadow-lg"
             >
               {/* Project Image */}
               <img
                 src={project.image}
-                alt={project.title}
-                className="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-300"
+                alt={`Preview of ${project.title}`}
+                className="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500"
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center gap-4 transition-opacity duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent opacity-0 group-hover:opacity-100 flex items-center justify-center gap-4 transition-opacity duration-500 backdrop-blur-sm">
                 {/* Code Link */}
                 <Link
                   href={project.codeLink}

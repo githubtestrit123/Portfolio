@@ -32,23 +32,23 @@ const AboutSection = () => {
   const [tab, setTab] = useState("skills");
 
   return (
-    <section className="text-white" id="about">
-      <div className="container mx-auto px-6">
+    <section className="text-white py-16" id="about">
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
-        {/* Image */}
-        <div className="flex justify-center">
+        {/* Left Image */}
+        <div className="flex justify-center md:justify-start">
           <Image
             src="/images/about-image.png"
             width={450}
             height={450}
             alt="Workstation setup"
             className="rounded-2xl shadow-lg"
-            loading="lazy" // ✅ priority hata kar lazy load
+            loading="lazy"
           />
         </div>
 
-        {/* Text content */}
-        <div className="mt-8 md:mt-0 text-left flex flex-col h-full">
+        {/* Right Content */}
+        <div className="text-left flex flex-col h-full">
           <h2 className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent text-4xl font-bold mb-4">
             About Me
           </h2>
