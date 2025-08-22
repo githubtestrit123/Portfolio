@@ -52,7 +52,7 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-[#121212] px-6 py-16 flex justify-center">
-      <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-start">
+      <div className="container mx-auto px-6">
         {/* Left */}
         <div>
           <h2 className="text-3xl font-bold text-white mb-4">Let’s Connect</h2>

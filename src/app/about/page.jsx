@@ -33,7 +33,7 @@ const AboutSection = () => {
 
   return (
     <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-12 items-center py-12 px-6 lg:px-16">
+      <div className="container mx-auto px-6">
         
         {/* Image */}
         <div className="flex justify-center">

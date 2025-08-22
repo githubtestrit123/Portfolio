@@ -7,8 +7,8 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-16">
-      <div className="grid grid-cols-1 sm:grid-cols-12">
+    <section className="lg:py-16 bg-black">
+      <div className="container mx-auto px-6">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
