@@ -44,8 +44,8 @@ const cardVariants = {
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-16 bg-black text-white">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-black text-white">
+      <div className="container mx-auto text-center">
         
         {/* Section Title */}
         <motion.h2
@@ -53,13 +53,13 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-12"
+          className="text-4xl font-bold mb-12 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent"
         >
           My Projects
         </motion.h2>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
             <motion.div
               key={project.id}
