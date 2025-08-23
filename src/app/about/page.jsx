@@ -12,6 +12,8 @@ const TAB_DATA = {
       <li>MySQL</li>
       <li>PHP</li>
       <li>Laravel</li>
+      <li>Framer Motion</li>
+      <li>Git</li>
     </ul>
   ),
   education: (
@@ -38,7 +40,7 @@ const AboutSection = () => {
         {/* Left Image */}
         <div className="flex justify-center md:justify-start">
           <Image
-            src="/images/about-image.png"
+            src="public/images/about-image.png"
             width={450}
             height={450}
             alt="Workstation setup"

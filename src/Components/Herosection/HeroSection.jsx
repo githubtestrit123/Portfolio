@@ -31,7 +31,7 @@ const HeroSection = () => {
             />
           </h1>
 
-          <p className="text-white-400 text-4xl mb-8">Frontend Developer</p>
+          <p className="text-white-400 text-lg mb-8">Frontend Developer</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link
@@ -60,7 +60,7 @@ const HeroSection = () => {
         >
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] lg:w-[350px] lg:h-[350px] relative overflow-hidden">
             <Image
-              src="/images/hero-image.png"
+              src="public/images/photo.jpeg"
               alt="hero image"
               className="object-cover"
               width={350}
