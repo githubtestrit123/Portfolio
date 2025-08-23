@@ -32,7 +32,7 @@ const AboutSection = () => {
   const [tab, setTab] = useState("skills");
 
   return (
-    <section className="text-white py-16" id="about">
+    <section className="text-white py-16 bg-black" id="about">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* Left Image */}

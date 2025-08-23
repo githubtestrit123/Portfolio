@@ -56,7 +56,7 @@ export default function ContactPage() {
         
         {/* Left: Info + Socials */}
         <div>
-          <h2 className="text-3xl font-bold text-white mb-4">Let’s Connect</h2>
+          <h2 className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent text-4xl font-bold mb-4">Let’s Connect</h2>
           <p className="text-[#ADB7BE] mb-6">
             I’m currently looking for new opportunities. Whether you have a
             question or just want to say hi, I’ll try my best to get back to you!

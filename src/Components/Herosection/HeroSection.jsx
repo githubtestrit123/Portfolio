@@ -31,7 +31,7 @@ const HeroSection = () => {
             />
           </h1>
 
-          <p className="text-gray-400 text-lg mb-8">Frontend Developer</p>
+          <p className="text-white-400 text-4xl mb-8">Frontend Developer</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link

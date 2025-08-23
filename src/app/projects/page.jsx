@@ -98,9 +98,9 @@ const Projects = () => {
               </div>
 
               {/* Project Info */}
-              <div className="p-5 bg-gray-800">
+              <div className="p-5 bg-black-800 hover: bg-purple-500">
                 <h3 className="text-xl font-semibold">{project.title}</h3>
-                <p className="text-gray-300 mt-2">{project.description}</p>
+                <p className="text-white-300 mt-2">{project.description}</p>
               </div>
             </motion.div>
           ))}

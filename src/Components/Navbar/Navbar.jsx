@@ -19,7 +19,7 @@ const Navbar = () => {
         
         {/* Logo */}
         <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-          Portfolio
+          
         </h1>
 
         {/* Desktop Menu */}
