@@ -40,7 +40,7 @@ const AboutSection = () => {
         {/* Left Image */}
         <div className="flex justify-center md:justify-start">
           <Image
-            src="public/images/about-image.png"
+            src="/images/about-image.png"
             width={450}
             height={450}
             alt="Workstation setup"
